@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/swiper.min.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Layout from "../helpers/Layout";
 import { SSRProvider } from "react-bootstrap";
@@ -7,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <SSRProvider>
       <Layout>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Layout>
     </SSRProvider>
   );
