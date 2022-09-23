@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillStar } from "react-icons/ai";
+import { Loader, toBase64 } from "../helpers/Placeholder";
 import styles from "./Card.module.scss";
 
 export default function CardComponent(props) {
   return (
     <>
-      <div className={`card ${styles.CardSpecs} col-md-3 ${props.cardStyles}`}>
+      <div className={`card ${styles.CardSpecs} ${props.cardStyles}`}>
         <div className="card-img-top">
           <Image
             src={props.Image}
@@ -14,6 +15,11 @@ export default function CardComponent(props) {
             width={300}
             height={300}
             layout="responsive"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              Loader(180, 280)
+            )}`}
           />
         </div>
         <div className="card-body">
@@ -30,7 +36,7 @@ export default function CardComponent(props) {
           <div className="row">
             {props.CardButtonText && (
               <div className="btn btn-primary col-6">
-                <Link href="/">
+                <Link href={`/product/${props.CardLink}`}>
                   <a className="text-white">{props.CardButtonText}</a>
                 </Link>
               </div>

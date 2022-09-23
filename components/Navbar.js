@@ -2,10 +2,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useDarkMode } from "../store/dark-mode-context";
 
 function Navi() {
+  const { darkMode, ToggleDarkMode } = useDarkMode();
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg={darkMode ? "light" : "dark"}
+      variant={darkMode ? "light" : "dark"}
+    >
       <Container>
         <Navbar.Brand href="#home">BlankTemplate</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -13,6 +21,9 @@ function Navi() {
           <Nav className="ms-auto">
             <Nav.Link href="#features">Features</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link onClick={ToggleDarkMode}>
+              {darkMode ? "🌑" : "☀️"}
+            </Nav.Link>
           </Nav>
           <Nav>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

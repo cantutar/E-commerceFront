@@ -10,8 +10,7 @@ import "swiper/css/pagination";
 // importing the image of discover
 import DiscoverImage from "../public/assets/images/1.jpg";
 // importing Card component from Card.js
-import CardComponent from "../components/Card";
-import { useEffect, useState } from "react";
+import DiscoverCard from "./Discover-Card";
 
 // TODO fix the slide issue
 
@@ -20,32 +19,23 @@ export default function DiscoverSlide(props) {
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2}
         loop={true}
         navigation={true}
         spaceBetween={0}
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="d-block" style={{ width: "18rem" }}>
-            <Image
-              src={DiscoverImage}
-              alt={"Discover Image"}
-              height={360}
-              width={400}
-              layout="fixed"
-            />
-          </div>
-        </SwiperSlide>
         {productData.products.map((product) => (
           <SwiperSlide key={product.id}>
-            <CardComponent
+            <DiscoverCard
               Image={product.thumbnail}
               alt={`${product.brand}-${product.title}`}
-              CardBrand={product.CardBrand}
+              CardBrand={product.brand}
               CardTitle={product.title}
               CardText={product.description}
+              stars={true}
+              starsNumber={product.rating}
               CardButtonText={"Go to product."}
               Price={product.price}
               Category={product.category}
