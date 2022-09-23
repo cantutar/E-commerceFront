@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AiFillStar } from "react-icons/ai";
 import styles from "./Card.module.scss";
 
 export default function CardComponent(props) {
@@ -17,8 +18,14 @@ export default function CardComponent(props) {
         </div>
         <div className="card-body">
           {props.Category && <p>{props.Category}</p>}
-          <h6 className="card-title">{props.CardBrand}</h6>
-          <h5 className="card-title">{props.CardTitle}</h5>
+          <h6 className="card-title text-center">{props.CardBrand}</h6>
+          <h5 className="card-title">{props.CardTitle}</h5>{" "}
+          <div className="d-flex justify-content-center align-items-center">
+            {props.stars &&
+              Array.from({ length: props.starsNumber }, (_, i) => (
+                <AiFillStar className="" color="orange" key={i} />
+              ))}
+          </div>
           <p className="card-text">{props.CardText} </p>
           <div className="row">
             {props.CardButtonText && (

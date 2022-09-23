@@ -1,5 +1,4 @@
 import CardComponent from "../../components/Card";
-import Image1 from "../../public/assets/images/1.jpg";
 
 export default function Product(props) {
   const { data } = props;
@@ -14,12 +13,15 @@ export default function Product(props) {
                 cardStyles={"mx-auto my-2"}
                 key={product.id}
                 Image={product.thumbnail}
-                CardTitle={"Card Title"}
-                CardText={
-                  "Some quick example text to build on the card title and make up the bulk of the card's content."
-                }
+                CardTitle={product.title}
+                CardBrand={product.brand}
+                CardText={product.description}
+                stars={true}
+                starsNumber={product.rating}
                 Price={product.price}
                 buttonStyles={"text-center fw-bold"}
+                isProduct={true}
+                CardButtonText={`Details of ${product.title}`}
               />
             );
           })}

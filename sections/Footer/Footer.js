@@ -52,6 +52,11 @@ export default function Footer(props) {
             </div>
             <hr />
             <div className="row">
+              <div className="col-4">
+                <p className="text-muted">
+                  © 2022, xxx.com, Inc. or its affiliates
+                </p>
+              </div>
               <div className="socials ms-auto col-4 d-flex justify-content-evenly">
                 <FaLinkedin title={"Linkendin Icon"} size={"2.5em"} />
                 <FaFacebook title={"Facebook Icon"} size={"2.5em"} />
