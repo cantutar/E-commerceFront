@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroImage from "../public/assets/images/hero.jpg";
+import HeroImage from "../../public/assets/images/hero.jpg";
 
 function Hero() {
   return (
@@ -16,8 +16,15 @@ function Hero() {
           Get now
         </button>
       </div>
-      <div className="w-full h-[45vh] relative z-0">
-        <Image src={HeroImage} alt="Hero image" layout="responsive" />
+      <div className="relative z-0 block">
+        <Image
+          src={HeroImage}
+          alt="Hero image"
+          layout="responsive"
+          width="1920"
+          height="1080"
+          priority={true}
+        />
       </div>
     </section>
   );
